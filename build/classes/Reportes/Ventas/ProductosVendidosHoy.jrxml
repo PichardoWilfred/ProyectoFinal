@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c6607f8-a24c-454f-98e4-dece31ec33ed">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM prodselled_today]]>
+	</queryString>
+	<field name="id_fac" class="java.lang.Integer"/>
+	<field name="id_producto" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="cant_vend" class="java.lang.Integer"/>
+	<field name="importe" class="java.lang.Integer"/>
+	<field name="fechadeventa" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement uuid="15b79216-c956-447b-ba62-25055b213be3" mode="Opaque" x="0" y="0" width="553" height="95" backcolor="#2C82C9"/>
+				<staticText>
+					<reportElement uuid="d5f6505c-1d4c-4536-b8aa-2841fd78c1c7" style="Title" x="64" y="16" width="449" height="61"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="38" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Productos vendidos hoy]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="eaa669e6-152f-487a-bc91-593e701d71ee" mode="Opaque" x="0" y="100" width="552" height="32" forecolor="#000000" backcolor="#81CFE0"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="7109376a-3b4d-4541-abaf-9a34f498eac5" x="429" y="10" width="123" height="22" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="336d28f2-fc7c-41bd-9144-22058d0429f0" style="Column header" x="0" y="7" width="92" height="31" forecolor="#333333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Yu Gothic UI" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="80d90ea2-4ed3-4ea6-8385-4da75d1efbc4" style="Column header" x="92" y="7" width="92" height="31" forecolor="#333333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Yu Gothic UI" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="781b3aaa-d3be-4911-beaf-aa268fc125bb" style="Column header" x="184" y="7" width="92" height="31" forecolor="#333333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Yu Gothic UI" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4ea6a98f-6d91-4d78-9858-06c735c04860" style="Column header" x="276" y="7" width="92" height="31" forecolor="#333333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Yu Gothic UI" size="15" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Cantidad ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d08694f1-4a5a-46a6-b7a4-67b360143f91" style="Column header" x="368" y="7" width="92" height="31" forecolor="#333333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Yu Gothic UI" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c9abc85a-7ec2-4a0e-94e7-5d9a3ca62897" style="Column header" x="460" y="7" width="92" height="31" forecolor="#333333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Yu Gothic UI" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement uuid="8ae08abd-a42a-4b82-af66-6504977c96b9" style="Row" mode="Opaque" x="0" y="0" width="555" height="18"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="d37c19b8-833d-4081-b760-5200899092d4" style="Detail" positionType="Float" x="0" y="0" width="92" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_fac}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="84f6a588-eb60-4867-bed7-522c34cd3de1" style="Detail" positionType="Float" x="92" y="0" width="92" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_producto}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="7a731540-e88e-44c0-bcbe-8ce515fb5a47" style="Detail" positionType="Float" x="184" y="0" width="92" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="c67a824c-adec-4346-9ab4-d539eef4483c" style="Detail" positionType="Float" x="276" y="0" width="92" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cant_vend}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="29acd144-47fe-4809-b486-2640d4a298ae" style="Detail" positionType="Float" x="368" y="0" width="92" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{importe}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="eda5e0ac-2f01-4bd2-9802-bfca5e98125f" style="Detail" positionType="Float" x="460" y="0" width="92" height="18" forecolor="#666666"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fechadeventa}.toString()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="7fedb0fb-f36d-45b6-8272-c1038cfba43a" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="0bfeaa26-5886-4894-984a-094bc5544d32" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#C5EFF7"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="6afc74e8-7988-44ec-b2cc-be8cac5950e2" style="Column header" x="513" y="0" width="40" height="20" forecolor="#666666"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Yu Gothic UI" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="d023df24-fd67-4b47-aa58-f6adb7f938a3" style="Column header" x="2" y="1" width="197" height="20" forecolor="#666666"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Yu Gothic UI" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

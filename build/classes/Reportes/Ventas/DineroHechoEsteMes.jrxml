@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="400" pageHeight="400" columnWidth="360" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3e09440c-73cd-46d9-80d2-97630555a837">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM moneyraised_thismonth;]]>
+	</queryString>
+	<field name="sum" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement uuid="5bdbf807-a128-4660-9633-128369a53051" mode="Opaque" x="0" y="0" width="360" height="95" backcolor="#2C82C9"/>
+				<staticText>
+					<reportElement uuid="ed111002-5050-41b4-ba21-64dcace494df" style="Title" x="0" y="30" width="360" height="49"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dinero hecho este mes]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="984b3773-fd23-4679-af7b-c987676a3567" mode="Opaque" x="0" y="100" width="360" height="32" forecolor="#000000" backcolor="#81CFE0"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="89472d29-8e76-44e5-893a-73062c021b38" x="250" y="0" width="110" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font fontName="Yu Gothic UI" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="874a7a93-eca7-4e38-9e42-25e63f360227" style="Column header" x="0" y="7" width="360" height="27" forecolor="#333333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Yu Gothic UI" size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<frame>
+				<reportElement uuid="b0dad480-0b6c-4880-a764-b31b4d4a2cb3" style="Row" mode="Opaque" x="0" y="0" width="360" height="18"/>
+			</frame>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6d9ea1ef-f088-4984-8fd5-b7bca4f5fe74" style="Detail" positionType="Float" x="0" y="0" width="360" height="29" forecolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font fontName="Yu Gothic UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="2a4b5489-7261-4f75-8c67-6eebca987d2c" mode="Opaque" x="0" y="1" width="360" height="24" forecolor="#D0B48E" backcolor="#C5EFF7"/>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
